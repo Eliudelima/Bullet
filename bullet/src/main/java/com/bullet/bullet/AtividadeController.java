@@ -41,8 +41,8 @@ public class AtividadeController {
 	@RequestMapping("/atividades")
 	public ModelAndView listaAtividades() {
 		ModelAndView mv = new ModelAndView("index");
-		Iterable<Atividade> atividade = ar.findAll();
-		mv.addObject("atividade", atividade);
+		Iterable<Atividade> atividades = ar.findAll();
+		mv.addObject("atividades", atividades);
 		return mv;
 	}
 	
@@ -50,9 +50,8 @@ public class AtividadeController {
 	@RequestMapping(value="/{codigo}", method=RequestMethod.GET)
 	public ModelAndView detalhesAtividade(@PathVariable("codigo") long codigo) {
 		Atividade atividade = ar.findByCodigo(codigo);
-		ModelAndView mv = new ModelAndView("atividade/detalhesAtividades");
+		ModelAndView mv = new ModelAndView("atividade/detalhesAtividade");
 		mv.addObject("atividade", atividade);
-		return mv;
 		
 		Iterable<Estudante> estudantes = er.findByAtividade(atividade);
 		mv.addObject("estudantes", estudantes);
