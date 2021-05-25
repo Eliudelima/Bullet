@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	 
+<head>
+	<title>Bullet Jornal</title>
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+</head>
+<body>
+<h1>Atividade</h1>
+
+<h3><a href="/atividades" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista Atividades</a></h3>
+<div th:each="atividade : ${atividade}" class="container">
+	<div class="row">
+		<p>Nome: <span th:text="${atividade.nome}"></span></p>
+		<p>Local: <span th:text="${atividade.local}"></span></p>
+		<p>Data: <span th:text="${atividade.data}"></span></p>
+		<p>Horário: <span th:text="${atividade.horario}"></span></p>
+	</div>
+	
+	<form method="post">
+		Nome: <input type="text" value="" name="nomeEstudante"/>
+		RA: <input type="text" value="" name="rg"/>
+		<button class="waves-effect waves-light btn" type="submit">Adicionar Alunos</button>
+	</form>
+</div>
+<h5>Lista de alunos</h5>
+<div  th:each="estudante : ${estudantes}" class="container">
+
+	<div class="row">
+			<div class="input-field col s6">
+				<p><span th:text="${estudante.nomeEstudante}"></span></p>	
+			</div>
+			<div class="input-field col s3">
+				<p><span th:text="${estudante.rg}"></span></p>
+			</div>	
+	</div>
+</div>
+
+
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
