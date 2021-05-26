@@ -16,6 +16,9 @@
 <body>
 	<h1>Cadastre suas Atividades:</h1>
 	<h3><a href="/atividades"  class="waves-effect waves-light btn"><i class="material-icons left">format_align_justify</i>>Lista de Atividades</a></h3>
+	
+	<th:block th:Include="mensagemValidacao"></th:block>
+	
 	<form class="container" method="post">
 		Nome: <input type="text" value=""  name="nome"/>
 		<div class="row">

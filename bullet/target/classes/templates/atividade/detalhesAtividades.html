@@ -25,14 +25,16 @@
 		<p>Horário: <span th:text="${atividade.horario}"></span></p>
 	</div>
 	
-	<form method="post">
-		Nome: <input type="text" value="" name="nomeEstudante"/>
+	<th:block th:Include="mensagemValidacao"></th:block>
+	
+	<form method="post" th:object="${estudante}">
+		Nome: <input type="text" value="" name="nomeEstudante" placeholder="Nome Completo"/>
 		RA: <input type="text" value="" name="rg"/>
 		<button class="waves-effect waves-light btn" type="submit">Adicionar Alunos</button>
 	</form>
 </div>
 <h5>Lista de alunos</h5>
-<div  th:each="estudante : ${estudantes}" class="container">
+<div class="container" th:each="estudante : ${estudantes}">
 
 	<div class="row">
 			<div class="input-field col s6">

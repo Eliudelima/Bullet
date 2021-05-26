@@ -3,14 +3,19 @@ package com.bullet.bullet.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 
 
 
 @Entity
 public class Estudante {
+	
 	@Id
+	@NotEmpty
 	private String rg;
+	
+	@NotEmpty
 	private String nomeEstudante;
 	
 	@ManyToOne
