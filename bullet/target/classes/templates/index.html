@@ -15,8 +15,8 @@
 </head>
 <body>
 <h1>Bullet Jornal</h1>
-<h2>Lista de Atividades</h2>
-<h3><a href= "/cadastrarAtividades" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Atividades</a></h3>
+<h2>Lista das Principais Atividades - Colégio Paulista</h2>
+<h3><a href= "/cadastrarAtividade" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Atividades</a></h3>
 
 <table class="container">
 	<thead>
@@ -25,14 +25,16 @@
 			<th>Local</th>
 			<th>Data</th>
 			<th>Horario</th>
+			<th>Deletar</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr th:each="atividade : ${atividades}">
-			<td><a th:href="${(#mvc.url('AC#detalhesAtividade').arg(0, atividade.codigo)).build()}"><span th:text="${atividade.nome}"></span></a></td>
+			<td><a th:href="${(#mvc.url('AC#detalhesAtividades').arg(0, atividade.codigo)).build()}"><span th:text="${atividade.nome}"></span></a></td>
 			<td><span th:text="${atividade.local}"></span></td>
 			<td><span th:text="${atividade.data}"></span></td>
 			<td><span th:text="${atividade.horario}"></span></td>
+			<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('AC#deletarAtividade').arg(0, atividade.codigo)).build()}"><i class="material-icons left">delete_forever</i></a></td>
 		</tr>
 	</tbody>
 	

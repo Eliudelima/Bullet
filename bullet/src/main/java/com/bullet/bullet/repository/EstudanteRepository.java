@@ -7,5 +7,8 @@ import com.bullet.bullet.models.Estudante;
 
 public interface EstudanteRepository extends CrudRepository<Estudante, String>{
 	Iterable<Estudante> findByAtividade(Atividade atividade);
+	Estudante findByRg(String rg);
+	
+	
 
 }
